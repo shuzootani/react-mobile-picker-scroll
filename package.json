@@ -1,11 +1,11 @@
 {
-  "name": "react-mobile-picker",
-  "version": "0.1.10",
+  "name": "react-mobile-picker-scroll",
+  "version": "0.2.10",
   "description": "An iOS like select box component for React",
   "main": "lib/react-mobile-picker.js",
   "repository": {
     "type": "git",
-    "url": "adcentury/react-mobile-picker"
+    "url": "dsmalicsi/react-mobile-picker"
   },
   "dependencies": {
     "react": "^0.14.3",
@@ -60,8 +60,8 @@
     "build": "npm run clean && npm run lint && set NODE_ENV=production && webpack --progress --hide-modules --config webpack.build.js"
   },
   "author": {
-    "name": "Lei Lei",
-    "email": "adcentury100@gmail.com"
+    "name": "Daryll Malicsi",
+    "email": "dsmalicsi@gmail.com"
   },
   "license": "MIT"
 }

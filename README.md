@@ -1,5 +1,7 @@
 # React Mobile Picker
 
+This package is a fork of the original React Mobile Picker made by @adcentury, modified to provide scroll wheel support on desktop browsers.
+
 React Mobile Picker is a super simple component with no restriction, which means you can use it in any way you want.
 
 ![screen-capture](./examples/screen-capture.gif)
@@ -15,7 +17,7 @@ Or visit (in mobile or mobile simulator): [http://adcentury.github.io/react-mobi
 ## Install
 
 ```
-npm install react-mobile-picker --save
+npm install react-mobile-picker-scroll --save
 ```
 
 ## Usage
@@ -23,13 +25,13 @@ npm install react-mobile-picker --save
 ### ES6
 
 ```javascript
-import Picker from 'react-mobile-picker';
+import Picker from 'react-mobile-picker-scroll';
 ```
 
 ### CommonJS
 
 ```javascript
-var Picker = require('react-mobile-picker');
+var Picker = require('react-mobile-picker-scroll');
 ```
 
 ## Props
@@ -50,7 +52,7 @@ Here is an example of how to integrate React Mobile Picker:
 
 ```javascript
 import React, {Component} from 'react';
-import Picker from 'react-mobile-picker';
+import Picker from 'react-mobile-picker-scroll';
 
 class App extends Component {
   constructor(props) {
