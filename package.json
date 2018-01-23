@@ -1,6 +1,6 @@
 {
   "name": "react-mobile-picker-scroll",
-  "version": "0.2.10",
+  "version": "0.2.12",
   "description": "An iOS like select box component for React",
   "main": "lib/react-mobile-picker.js",
   "repository": {
