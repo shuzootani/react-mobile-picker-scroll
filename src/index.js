@@ -8,7 +8,8 @@ class PickerColumn extends Component {
     value: PropTypes.any.isRequired,
     itemHeight: PropTypes.number.isRequired,
     columnHeight: PropTypes.number.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    tabIndex: PropTypes.number.isRequired
   };
 
   constructor(props) {
@@ -135,9 +136,17 @@ class PickerColumn extends Component {
     }, 250);
   }
 
-  handleWheel = (event) => {
+  handleScroll = (event) => {
 
-    const deltaY = event.deltaY;
+    // Support for keyboard up/down
+    let deltaY;
+    if (!!event.keyCode && (event.keyCode == 38 || event.keyCode == 40)) {
+      deltaY = event.keyCode == 38 ? 53 : -53;
+    } else if (!!event.deltaY) {
+      deltaY = event.deltaY;
+    } else {
+      deltaY = 0;
+    }
 
     this.setState(({ scrollerTranslate, minTranslate, maxTranslate }) => {
       const newValue = (scrollerTranslate || 0) + Math.round(deltaY);
@@ -171,6 +180,7 @@ class PickerColumn extends Component {
   }
 
   render() {
+    const { tabIndex } = this.props;
     const translateString = `translate3d(0, ${this.state.scrollerTranslate}px, 0)`;
     const style = {
       MsTransform: translateString,
@@ -185,13 +195,15 @@ class PickerColumn extends Component {
     return (
       <div className="picker-column">
         <div
+          tabIndex={tabIndex}
           className="picker-scroller"
           style={style}
           onTouchStart={this.handleTouchStart}
           onTouchMove={this.handleTouchMove}
           onTouchEnd={this.handleTouchEnd}
           onTouchCancel={this.handleTouchCancel}
-          onWheel={this.handleWheel}
+          onWheel={this.handleScroll}
+          onKeyDown={this.handleScroll}
         >
           {this.renderItems()}
         </div>
@@ -220,10 +232,12 @@ export default class Picker extends Component {
       height: itemHeight,
       marginTop: -(itemHeight / 2)
     };
+    let index = 1000;
     const columnNodes = [];
     for (let name in optionGroups) {
       columnNodes.push(
         <PickerColumn
+          tabIndex={index++}
           key={name}
           name={name}
           options={optionGroups[name]}
