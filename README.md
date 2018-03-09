@@ -1,6 +1,6 @@
 # React Mobile Picker
 
-This package is a fork of the original React Mobile Picker made by @adcentury, modified to provide scroll wheel support on desktop browsers.
+This package is a fork of the original React Mobile Picker made by @adcentury, modified to provide scroll wheel and keyboard up/down event support for desktop browsers.
 
 React Mobile Picker is a super simple component with no restriction, which means you can use it in any way you want.
 
