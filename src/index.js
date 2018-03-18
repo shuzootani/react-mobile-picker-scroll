@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, WheelEvent } from 'react';
+import React, { Component, WheelEvent } from 'react';
+import PropTypes from 'prop-types';
 import './style.less';
 
 class PickerColumn extends Component {
