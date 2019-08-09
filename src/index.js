@@ -59,7 +59,8 @@ class PickerColumn extends Component {
   };
 
   handleTouchMove = (event) => {
-    event.preventDefault();
+    // remove-next-line: [Intervention] Unable to preventDefault inside passive event listener
+    // event.preventDefault();
     const touchY = event.targetTouches[0].pageY;
     this.setState(({ isMoving, startTouchY, startScrollerTranslate, minTranslate, maxTranslate }) => {
       if (!isMoving) {
